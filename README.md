@@ -4,7 +4,7 @@
 - Here is the screenshot.
 
 
-![](my-app\public\Screenshot1.png)
+![](./public/Screenshot1.png)
 ### I made a todo list, I can add or remove items on the list.
 ### Attribute
 - Tiff in Tech https://www.youtube.com/watch?v=e_ZibOe77yo&t=168s&ab_channel=TiffInTech

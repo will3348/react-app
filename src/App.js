@@ -1,23 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [todo, setTodo] = useState('');
+  const [list, setList] = useState([]);
+  console.log({ todo });
+  function onChangeField(event) {
+    setTodo(event.target.value)
+  }
+  function onClickAdd() {
+    setList([...list, todo])
+  }
+  function onRemoveClick(index) {
+    setList(list.filter((x,i) => index !==i));
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>What I Am Going To Do</h1>
+      <input vulue={todo} onChange={onChangeField} />
+      <button onClick={onClickAdd}>ADD</button>
+      <ul>
+        {list.map((item, index) => {
+          return (
+          <li key={index}>
+            {item}<button onClick={() =>onRemoveClick(index)}>Remove</button>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
